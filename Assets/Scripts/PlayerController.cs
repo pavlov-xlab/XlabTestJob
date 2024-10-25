@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public GameObject ui;
     public StoneSpawner stoneSpawner;
     public CloudController cloudController;
+    public ToolChangerController toolChangerController;
 
     private void Update()
     {
@@ -35,6 +36,14 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Z))
             {
                 cloudController.MoveNext();
+            }
+        }
+
+        if (toolChangerController != null)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                toolChangerController.Change();
             }
         }
     }
