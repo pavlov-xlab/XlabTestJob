@@ -6,11 +6,17 @@ using UnityEngine.PlayerLoop;
 public class CloudController : MonoBehaviour
 {    
     [SerializeField] private Transform m_cloud;
+    [SerializeField] private ParticleSystem m_rain;
     [SerializeField] private Transform[] m_points;
     [SerializeField] private float m_speed = 10f;
 
     private int m_curPointIndex = -1;
     private bool m_isMove = false;
+
+    private void Start()
+    {
+        m_rain.Stop();
+    }
 
 
     public void MoveNext()
@@ -30,6 +36,7 @@ public class CloudController : MonoBehaviour
         }
 
         m_isMove = true;
+        m_rain.Stop();
     }
 
     private Vector3 GetPoint(int index)
@@ -51,6 +58,7 @@ public class CloudController : MonoBehaviour
         if (Vector3.Distance(m_cloud.position, point) < 1f)
         {
             m_isMove = false;
+            m_rain.Play();
         }
     }
 
