@@ -1,50 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
-public class PlayerController : MonoBehaviour
+namespace Golf
 {
-    [SerializeField]
-    private FreeCamera freeCamera;
-    public GameObject ui;
-    public StoneSpawner stoneSpawner;
-    public CloudController cloudController;
-    public ToolChangerController toolChangerController;
-
-    private void Update()
+    public class PlayerController : MonoBehaviour
     {
-        if (ui.activeSelf)
-        {
-            return;
-        }
+        public Transform stick;
+        public float maxAngle = 30f;
+        public float speed = 1f;
 
-        if (freeCamera != null)
+        private void Update()
         {
-            freeCamera.Move();
-        }
-
-        if (stoneSpawner != null)
-        {
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                stoneSpawner.Spawn();
+            Vector3 angle = stick.localEulerAngles;
+            if (Input.GetMouseButton(0))
+            {   
+                angle.z = Mathf.MoveTowardsAngle(angle.z, -maxAngle, speed * Time.deltaTime);
             }
-        }
-
-        if (cloudController != null)
-        {
-            if (Input.GetKeyDown(KeyCode.Z))
+            else
             {
-                cloudController.MoveNext();
+                angle.z = Mathf.MoveTowardsAngle(angle.z, maxAngle, speed * Time.deltaTime);
             }
-        }
-
-        if (toolChangerController != null)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                toolChangerController.Change();
-            }
+            stick.localEulerAngles = angle;
         }
     }
 }
