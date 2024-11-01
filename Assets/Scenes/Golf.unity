@@ -2007,6 +2007,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 238623787}
+  - component: {fileID: 238623789}
+  - component: {fileID: 238623788}
   m_Layer: 0
   m_Name: Stick
   m_TagString: Untagged
@@ -2030,6 +2032,49 @@ Transform:
   - {fileID: 350799693830406710}
   m_Father: {fileID: 2916151947902129309}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &238623788
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238623786}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &238623789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238623786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd69d6f6917e3f4199a523dcfc2a1fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAngle: 30
+  speed: 360
+  power: 10
+  point: {fileID: 1475923748}
 --- !u!1001 &245114481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6028,6 +6073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449adfd78001f97499de3bb5cd967c6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stick: {fileID: 238623789}
   stoneSpawner: {fileID: 33667659}
   m_delay: 2
 --- !u!1 &701000932 stripped
@@ -11128,9 +11174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 588ce786a87ca7d47afba0e53e6f57de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stick: {fileID: 238623787}
-  maxAngle: 30
-  speed: 360
+  stick: {fileID: 238623789}
 --- !u!4 &1279036838
 Transform:
   m_ObjectHideFlags: 0

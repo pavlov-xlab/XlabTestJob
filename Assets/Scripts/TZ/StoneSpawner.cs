@@ -18,11 +18,11 @@ public class StoneSpawner : MonoBehaviour
         }
     }
 
-    public void Spawn()
+    public GameObject Spawn()
     {
         int index = Random.Range(0, m_Prefabs.Length);
 
-        Instantiate(m_Prefabs[index], m_point.position, m_point.rotation);
+        return Instantiate(m_Prefabs[index], m_point.position, m_point.rotation);
     }
     
 }

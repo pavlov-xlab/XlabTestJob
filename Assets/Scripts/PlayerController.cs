@@ -1,26 +1,21 @@
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 namespace Golf
 {
     public class PlayerController : MonoBehaviour
     {
-        public Transform stick;
-        public float maxAngle = 30f;
-        public float speed = 1f;
+        public Stick stick;
 
-        private void Update()
+        private void FixedUpdate()
         {
-            Vector3 angle = stick.localEulerAngles;
             if (Input.GetMouseButton(0))
             {   
-                angle.z = Mathf.MoveTowardsAngle(angle.z, -maxAngle, speed * Time.deltaTime);
+                stick.Down();
             }
             else
             {
-                angle.z = Mathf.MoveTowardsAngle(angle.z, maxAngle, speed * Time.deltaTime);
+                stick.Up();
             }
-            stick.localEulerAngles = angle;
         }
     }
 }
