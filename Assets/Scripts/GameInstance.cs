@@ -10,6 +10,16 @@ namespace Golf
 
         public Transform states;
 
+        private void OnEnable()
+        {
+            score = PlayerPrefs.GetInt("TopScore");
+        }
+
+        public void OnDisable()
+        {
+            PlayerPrefs.SetInt("TopScore", score);
+        }
+
         private void Start()
         {
             foreach (Transform child in states)
