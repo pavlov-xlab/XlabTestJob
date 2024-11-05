@@ -8,14 +8,24 @@ namespace Golf
 
         private void FixedUpdate()
         {
-            if (Input.GetMouseButton(0))
-            {   
-                stick.Down();
-            }
-            else
-            {
-                stick.Up();
-            }
+            // if (Input.GetMouseButton(0))
+            // {   
+            //     PointerDown();
+            // }
+            // else
+            // {
+            //     PointerUp();
+            // }
+        }
+
+        public void PointerDown()
+        {
+            stick.Down();
+        }
+
+        public void PointerUp()
+        {
+            stick.Up();
         }
     }
 }

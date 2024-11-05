@@ -32,12 +32,6 @@ namespace Golf
             m_isDown = true;
         }
 
-        private void Update()
-        {
-            m_dir = (point.position - m_lastPointPosition).normalized;
-            m_lastPointPosition = point.position;            
-        }
-
         private void FixedUpdate()
         {
             Vector3 angle = transform.localEulerAngles;
@@ -50,6 +44,9 @@ namespace Golf
                 angle.z = Mathf.MoveTowardsAngle(angle.z, maxAngle, speed * Time.deltaTime);
             }
             transform.localEulerAngles = angle;
+
+            m_dir = (point.position - m_lastPointPosition).normalized;
+            m_lastPointPosition = point.position;
         }
 
         private void OnCollisionEnter(Collision other)
@@ -57,7 +54,7 @@ namespace Golf
             if (other.gameObject.TryGetComponent<Stone>(out var stone) && !stone.isDirty)
             {
                 stone.isDirty = true;
-                var contact = other.contacts[0];
+                // var contact = other.contacts[0];
                 other.rigidbody.AddForce(m_dir * power, ForceMode.Impulse);
                 onCollisionStone?.Invoke();
             }
