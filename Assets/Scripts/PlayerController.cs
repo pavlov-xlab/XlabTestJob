@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Golf
 {
@@ -16,6 +17,14 @@ namespace Golf
             // {
             //     PointerUp();
             // }
+        }
+
+        private void OnEnable()
+        {
+            if (stick != null)
+            {
+                stick.Reset();
+            }
         }
 
         public void PointerDown()

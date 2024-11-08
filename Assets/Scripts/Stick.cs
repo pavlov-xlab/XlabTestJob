@@ -15,35 +15,44 @@ namespace Golf
         private Vector3 m_dir;
         private bool m_isDown = false;
         private Rigidbody m_rigidbody;
+        private float m_angle = 0;
+
+        public void Reset()
+        {
+            m_isDown = false;
+        }
 
 
         private void Awake()
         {
+            m_angle = maxAngle;
             m_rigidbody = GetComponent<Rigidbody>();
         }
 
         public void Down()
         {
-            m_isDown = false;
+            m_isDown = true;
         }
 
         public void Up()
         {
-            m_isDown = true;
+            m_isDown = false;
         }
 
         private void FixedUpdate()
         {
-            Vector3 angle = transform.localEulerAngles;
             if (m_isDown)
             {   
-                angle.z = Mathf.MoveTowardsAngle(angle.z, -maxAngle, speed * Time.deltaTime);
+                m_angle = Mathf.MoveTowards(m_angle, -maxAngle, speed * Time.deltaTime);
             }
             else
             {
-                angle.z = Mathf.MoveTowardsAngle(angle.z, maxAngle, speed * Time.deltaTime);
+                m_angle = Mathf.MoveTowards(m_angle, maxAngle, speed * Time.deltaTime);
             }
-            transform.localEulerAngles = angle;
+
+            Vector3 localEulerAngles = transform.localEulerAngles;
+            localEulerAngles.z = m_angle;
+            transform.localEulerAngles = localEulerAngles;
 
             m_dir = (point.position - m_lastPointPosition).normalized;
             m_lastPointPosition = point.position;
