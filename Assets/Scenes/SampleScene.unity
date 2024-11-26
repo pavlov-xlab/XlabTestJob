@@ -38148,7 +38148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b309ca1dcee56442a00bf1fa34a74e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMove: 5
+  speedMove: 10
   inputActions: {fileID: -944628639613478452, guid: 25e4f8baaa923af4b87b4ee0eca600fe, type: 3}
   cameraTransform: {fileID: 330585546}
 --- !u!136 &1675349749
