@@ -22,6 +22,13 @@ public class Enemy : MonoBehaviour
             {
                 m_meshAgent.destination = m_target.position;
             }
+
+            if (Vector3.Distance(m_target.position, transform.position) < 1)
+            {
+                //Attack
+            }
+
+            
         }
     }
 
