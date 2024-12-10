@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -8,6 +9,10 @@ public class Enemy : MonoBehaviour
     private Transform m_target;
 
     public int Num { get; } = 5;
+
+    public LayerMask layerMask;
+
+    public WeaponSO weaponData;
 
     private void Awake()
     {
@@ -27,8 +32,6 @@ public class Enemy : MonoBehaviour
             {
                 //Attack
             }
-
-            
         }
     }
 

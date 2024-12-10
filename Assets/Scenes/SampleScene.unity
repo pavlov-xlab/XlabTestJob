@@ -3095,6 +3095,14 @@ PrefabInstance:
       propertyPath: m_Speed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6140362005828550674, guid: d5c63ae866708f942b8aa721d12cfcdc, type: 3}
+      propertyPath: weaponData
+      value: 
+      objectReference: {fileID: 11400000, guid: 9f7e430f5f2861341b383a64833a747d, type: 2}
+    - target: {fileID: 6140362005828550674, guid: d5c63ae866708f942b8aa721d12cfcdc, type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7432448461388060839, guid: d5c63ae866708f942b8aa721d12cfcdc, type: 3}
       propertyPath: m_Name
       value: Enemy
