@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -43,10 +44,16 @@ public class WeaponSO : ScriptableObject
             this.cage = data.cage;
             var iconPath = AssetDatabase.GUIDToAssetPath(data.icon);
             this.icon = AssetDatabase.LoadAssetAtPath<Sprite>(iconPath);
-            this.prefab = AssetDatabase.LoadAssetAtPath<GameObject>(data.prefab);
+            this.prefab = AssetDatabase.LoadAssetAtPath<GameObject>(data.prefab);            
         }
     }
 #endif
+
+    [System.Serializable]
+    public class Bullet
+    {
+        public string prefab;
+    }
 
     public class WeaponData
     {
@@ -54,5 +61,7 @@ public class WeaponSO : ScriptableObject
         public int cage;
         public string prefab;
         public string icon;
+
+        public List<Bullet> bullet = new List<Bullet>(new []{new Bullet()});
     }
 }

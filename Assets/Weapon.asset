@@ -15,4 +15,4 @@ MonoBehaviour:
   <delay>k__BackingField: 3
   cage: 10
   prefab: {fileID: 2165151737894360782, guid: 0bdfda2230bd1034d9e8db2aa95007d3, type: 3}
-  icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: -2413806693520163455, guid: abc9c6dbb829e674cbb33da43d2d6fe5, type: 3}
