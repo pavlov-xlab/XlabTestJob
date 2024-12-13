@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
 
     public LayerMask layerMask;
 
-    public WeaponSO weaponData;
+    public WeaponDataSO weaponData;
 
     private void Awake()
     {

@@ -4,12 +4,28 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
     private readonly List<Weapon> m_weapons = new List<Weapon>();
+    public List<WeaponDataSO> m_data;
     private Weapon m_currentWeapon;
 
     private void Awake()
     {
         GetComponentsInChildren(true, m_weapons);
         m_weapons.ForEach(x=> x.gameObject.SetActive(false));
+
+        SetActiveWeapon(0);
+    }
+
+    private void Start()
+    {
+        foreach (var data in m_data)
+        {
+            var go = Instantiate(data.prefab, transform);
+            go.SetActive(false);
+            if (go.TryGetComponent<Weapon>(out var weapon))
+            {
+                m_weapons.Add(weapon);
+            }
+        }
 
         SetActiveWeapon(0);
     }
