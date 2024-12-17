@@ -25,11 +25,19 @@ namespace Xlab
 
             var nextWeaponAction = actions.FindAction("Player/NextWeapon");
             nextWeaponAction.performed += OnNextWeapon;
+            
+            var reloadWeaponAction = actions.FindAction("Player/Reload");
+            reloadWeaponAction.performed += OnReloadWeapon;
 
             actions.Enable();
 
             bool result = player.TryGetComponent(out m_weaponManager);
             Debug.Assert(result, "WeaponManager not found!");
+        }
+
+        private void OnReloadWeapon(InputAction.CallbackContext context)
+        {
+            m_weaponManager.Reload();
         }
 
         private void OnDestroy()
@@ -44,6 +52,9 @@ namespace Xlab
 
             var nextWeaponAction = actions.FindAction("Player/NextWeapon");
             nextWeaponAction.performed -= OnNextWeapon;
+
+            var reloadWeaponAction = actions.FindAction("Player/Reload");
+            reloadWeaponAction.performed -= OnReloadWeapon;
 
             actions.Disable();
         }

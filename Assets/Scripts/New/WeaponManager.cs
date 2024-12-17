@@ -30,6 +30,15 @@ public class WeaponManager : MonoBehaviour
         SetActiveWeapon(0);
     }
 
+    public void Reload()
+    {
+        Debug.Log($"[WeaponManager]: Reload");
+        if (m_currentWeapon)
+        {
+            m_currentWeapon.Reload();
+        }
+    }
+
     public void StartFire()
     {
         Debug.Log($"[WeaponManager]: StartFire");
