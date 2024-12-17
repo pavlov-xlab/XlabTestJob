@@ -32,6 +32,22 @@ namespace Xlab
             Debug.Assert(result, "WeaponManager not found!");
         }
 
+        private void OnDestroy()
+        {
+            var aimAction = actions.FindAction("Player/Fire2");
+            aimAction.started -= OnAimStarted;
+            aimAction.canceled -= OnAimCanceled;
+            
+            var fireAction = actions.FindAction("Player/Fire");
+            fireAction.started -= OnFireStarted;
+            fireAction.canceled -= OnFireCanceled;
+
+            var nextWeaponAction = actions.FindAction("Player/NextWeapon");
+            nextWeaponAction.performed -= OnNextWeapon;
+
+            actions.Disable();
+        }
+
         private void OnNextWeapon(InputAction.CallbackContext context)
         {
             m_weaponManager.NextWeapon();
