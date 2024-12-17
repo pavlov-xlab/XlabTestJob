@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <delay>k__BackingField: 0.5
   cage: 10
-  power: 15
-  bulletPrefab: {fileID: 1152024242606804505, guid: f0cbcf40663465840ac0a7d152ff01b4, type: 3}
+  weaponShoot: {fileID: 11400000, guid: e18e3de6ac7de994ea4708b60aa6f9a8, type: 2}
   prefab: {fileID: 6538431748234834369, guid: 2d63f3c1b69069e41a0f1a1512b91c9f, type: 3}
   icon: {fileID: -2413806693520163455, guid: abc9c6dbb829e674cbb33da43d2d6fe5, type: 3}

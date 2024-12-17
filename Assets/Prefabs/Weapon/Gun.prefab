@@ -509,6 +509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1164795259125388363}
   - component: {fileID: 6583401915138220538}
+  - component: {fileID: 2991503034912120108}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -547,6 +548,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_muzzle: {fileID: 384823624623012370}
   weaponDataSO: {fileID: 11400000, guid: a7d24a01f5a008544939f8ac6c50a691, type: 2}
+--- !u!114 &2991503034912120108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6538431748234834369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b83ee7d47c1b04280d8982af56de8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: -1905162958282945975, guid: f0cbcf40663465840ac0a7d152ff01b4, type: 3}
+  power: 10
 --- !u!1 &6974588920466647721
 GameObject:
   m_ObjectHideFlags: 0
