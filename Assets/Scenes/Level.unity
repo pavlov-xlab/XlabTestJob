@@ -1501,7 +1501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e192c654cd097947a7882660329318d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actions: {fileID: -944628639613478452, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
+  actions: {fileID: -944628639613478452, guid: bfb8b5485f0d591469c6575a13e68865, type: 3}
   aimCameraRig: {fileID: 1889537705}
   player: {fileID: 36993907}
 --- !u!43 &1336923288
