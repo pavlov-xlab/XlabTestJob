@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Xlab;
 
 public class WeaponManager : MonoBehaviour
 {

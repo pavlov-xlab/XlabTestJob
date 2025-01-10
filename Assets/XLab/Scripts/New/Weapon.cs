@@ -1,111 +1,71 @@
-using System;
-using System.Collections;
 using UnityEngine;
+using Xlab.WFSM;
 
-public class Weapon : MonoBehaviour
+namespace Xlab
 {
-    enum State { Idle, Fire, Reload, Empty }
 
-    public Transform m_muzzle;
-    public WeaponDataSO weaponDataSO;
-    private Coroutine m_fireCoroutine;
-    private IWeaponShoot m_weaponShoot;
-
-    private State m_state = State.Idle;
-    private int m_cageSize = 0;
-    private int m_bulletCount;
-
-    private void Awake()
+    public class Weapon : MonoBehaviour
     {
-        m_weaponShoot = GetComponent<IWeaponShoot>();
-        weaponDataSO.icon = null;
-    }
+        public Transform m_muzzle;
+        public WeaponDataSO weaponDataSO;
 
-    private void Start()
-    {
-        m_cageSize = weaponDataSO.cageSize;
-        m_bulletCount = m_cageSize * 2;
-    }
+        private int m_cageSize = 0;
+        private int m_bulletCount;
+        private WeaponFSM m_weaponFSM;
 
-    public void Reload()
-    {
-        if (m_state == State.Fire || m_state == State.Idle)
+        public bool hasBullet => m_bulletCount > 0;
+
+        public bool CanFire()
         {
-            m_state = State.Reload;
-
-            StopFire();
-            StartCoroutine(ReloadDelay());
-        }
-    }
-
-    public void StartFire()
-    {
-        if (m_cageSize <= 0)
-        {
-            return;
+            return m_cageSize > 0;
         }
 
-        if (m_state == State.Idle)
+        private void Awake()
         {
-            m_state = State.Fire;
-            m_fireCoroutine = StartCoroutine(FireDelay());
-        }
-        else if (m_state == State.Empty)
-        {
-            Debug.Log("i am empty!");
-        }
-    }
-
-    private IEnumerator ReloadDelay()
-    {
-        yield return new WaitForSeconds(weaponDataSO.reloadDelay);
-        m_cageSize = Mathf.Min(weaponDataSO.cageSize, m_bulletCount);
-        m_state = State.Idle;
-    }
-
-    private IEnumerator FireDelay()
-    {
-        do
-        {
-            Shoot();
-            yield return new WaitForSeconds(weaponDataSO.delay);
-        }
-        while(weaponDataSO.autoFire && m_cageSize > 0);
-
-
-        if (m_bulletCount <= 0)
-        {
-            m_state = State.Empty;
-        }
-        else
-        {
-            m_state = State.Idle;
+            m_weaponFSM = new WeaponFSM(this);
         }
 
-
-        if (m_cageSize == 0 && m_bulletCount > 0 && weaponDataSO.autoReload)
+        private void Start()
         {
-            Reload();
+            m_cageSize = weaponDataSO.cageSize;
+            m_bulletCount = m_cageSize * 2;
+
+            m_weaponFSM.ActivateState(WeaponStateEnum.Idle);
         }
-    }
 
-    public void StopFire()
-    {
-        m_state = State.Idle;
-
-        if (m_fireCoroutine != null)
+        public void StartFire()
         {
-            StopCoroutine(m_fireCoroutine);
-            m_fireCoroutine = null;
+            m_weaponFSM.StartFire();
         }
-    }
 
-    private void Shoot()
-    {
-        --m_cageSize;
-        --m_bulletCount;
+        public void StopFire()
+        {
+            m_weaponFSM.StopFire();
+        }
 
-        weaponDataSO.weaponShoot.Shoot(m_muzzle.position, m_muzzle.forward);
-        // m_weaponShoot.Shoot(m_muzzle.position, m_muzzle.forward);
+        public void Reload()
+        {
+            m_weaponFSM.Reload();
+        }
+
+        private void Update()
+        {
+            m_weaponFSM.Update();
+        }
+
+        public void Shoot()
+        {
+            --m_cageSize;
+            --m_bulletCount;
+
+            Debug.Log("Weapon shoot");
+            weaponDataSO.weaponShoot.Shoot(m_muzzle.position, m_muzzle.forward);
+        }
+
+        public void ReloadComplete()
+        {
+            Debug.Log("Weapon ReloadComplete");
+            m_cageSize = Mathf.Min(weaponDataSO.cageSize, m_bulletCount);
+        }
     }
 }
