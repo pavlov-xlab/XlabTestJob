@@ -9,12 +9,25 @@ public class PlayerController : MonoBehaviour
     private InputAction m_aimAction;
     public Player target;
 
+    public event Action testSA;
+
     public CamerasManager camerasManager;
 
     public void SetTarget(Player target)
     {
         this.target = target;
         camerasManager.SetTarget(target.transform);
+
+        UnityEngine.Events.UnityEvent unityEvent = new UnityEngine.Events.UnityEvent();
+        unityEvent.AddListener(Start);
+        unityEvent.AddListener(Update);
+
+        testSA += Start;
+        testSA += Update;
+
+        testSA.Invoke();
+
+        unityEvent.Invoke();
     }
     
     void Start()

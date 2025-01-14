@@ -12,7 +12,6 @@ public class LoadNextScene : MonoBehaviour
 
         StartCoroutine(LoadSceneAsync(sceneName));
     }
-
     
 
     IEnumerator LoadSceneAsync(string sceneName)

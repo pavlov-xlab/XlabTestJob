@@ -3,7 +3,7 @@ using UnityEngine;
 public class KeepObject : MonoBehaviour
 {
     private static KeepObject instance;
-    private void Awake()
+    private void Start()
     {
         if (instance != null)
         {
