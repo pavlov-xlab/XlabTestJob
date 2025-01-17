@@ -1505,6 +1505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_objects:
+  - {fileID: 1846475044}
   - {fileID: 799959448}
 --- !u!1 &760510869
 GameObject:
@@ -2718,6 +2719,7 @@ RectTransform:
   - {fileID: 810495262}
   - {fileID: 1737557677}
   - {fileID: 1509174583}
+  - {fileID: 1846475045}
   - {fileID: 256322593}
   - {fileID: 1767190931}
   - {fileID: 799959449}
@@ -3425,6 +3427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_objects:
+  - {fileID: 1846475044}
   - {fileID: 1767190930}
 --- !u!1 &1426086486
 GameObject:
@@ -3437,6 +3440,7 @@ GameObject:
   - component: {fileID: 1426086487}
   - component: {fileID: 1426086488}
   - component: {fileID: 1426086489}
+  - component: {fileID: 1426086490}
   m_Layer: 0
   m_Name: GameplayState
   m_TagString: Untagged
@@ -3485,6 +3489,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_objects:
   - {fileID: 256322592}
+--- !u!114 &1426086490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426086486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d9d507fc2804b94b8c349d32db40017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_hotkey:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Hotkey
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: f4daebe4-ba7a-47e9-a091-193af51da9c5
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 12c9399e-0838-434a-8dc0-652ac9d0a169
+        m_Path: <Keyboard>/escape
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Hotkey
+        m_Flags: 0
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_onPerformed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2083881787}
+        m_TargetAssemblyTypeName: Xlab.States.GameMode, Assembly-CSharp
+        m_MethodName: GotoPause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1439620090
 GameObject:
   m_ObjectHideFlags: 0
@@ -3999,7 +4050,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1846475045}
   - {fileID: 806125596}
   - {fileID: 1025650392}
   m_Father: {fileID: 1027299038}
@@ -4162,7 +4212,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1846475045
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4170,12 +4220,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1846475044}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1767190931}
+  m_Father: {fileID: 1027299038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
