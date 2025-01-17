@@ -33,5 +33,5 @@ namespace Xlab.States
 		protected virtual void OnExit()
 		{
 		}
-	}
+    }
 }

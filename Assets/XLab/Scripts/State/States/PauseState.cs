@@ -22,17 +22,5 @@ namespace Xlab.States
 			SceneManager.LoadScene("Empty");
 			SceneManager.LoadScene(scene.name);
 		}
-
-		public void OnQuitClick()
-		{
-			if (Application.isEditor)
-			{
-				UnityEditor.EditorApplication.isPlaying = false;
-			}
-			else
-			{
-				Application.Quit();
-			}
-		}
 	}
 }
