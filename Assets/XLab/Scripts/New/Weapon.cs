@@ -13,9 +13,14 @@ namespace Xlab
         private int m_bulletCount;
         private WeaponFSM m_weaponFSM;
 
-        public bool hasBullet => m_bulletCount > 0;
+		public int curCage => m_cageSize;
+		public int cageSize => weaponDataSO.cageSize;
+		public bool hasBullet => m_bulletCount > 0;
 
-        public bool CanFire()
+		public event System.Action onShoot;
+		public event System.Action onReload;
+
+		public bool CanFire()
         {
             return m_cageSize > 0;
         }
@@ -23,13 +28,13 @@ namespace Xlab
         private void Awake()
         {
             m_weaponFSM = new WeaponFSM(this);
-        }
+			
+			m_cageSize = weaponDataSO.cageSize;
+			m_bulletCount = m_cageSize * 2;
+		}
 
         private void Start()
         {
-            m_cageSize = weaponDataSO.cageSize;
-            m_bulletCount = m_cageSize * 2;
-
             m_weaponFSM.ActivateState(WeaponStateEnum.Idle);
         }
 
@@ -60,12 +65,16 @@ namespace Xlab
 
             Debug.Log("Weapon shoot");
             weaponDataSO.weaponShoot.Shoot(m_muzzle.position, m_muzzle.forward);
-        }
+
+			onShoot?.Invoke();
+		}
 
         public void ReloadComplete()
         {
             Debug.Log("Weapon ReloadComplete");
             m_cageSize = Mathf.Min(weaponDataSO.cageSize, m_bulletCount);
-        }
+
+			onReload?.Invoke();
+		}
     }
 }

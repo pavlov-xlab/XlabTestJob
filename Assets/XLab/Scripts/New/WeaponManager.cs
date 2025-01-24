@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Xlab;
@@ -8,7 +9,12 @@ public class WeaponManager : MonoBehaviour
     public List<WeaponDataSO> m_data;
     private Weapon m_currentWeapon;
 
-    private void Awake()
+    public Weapon currentWeapon => m_currentWeapon;
+    public event System.Action onChangeWeapon;
+	public event System.Action onShoot;
+	public event System.Action onReload;
+
+	private void Awake()
     {
         GetComponentsInChildren(true, m_weapons);
         m_weapons.ForEach(x=> x.gameObject.SetActive(false));
@@ -73,7 +79,9 @@ public class WeaponManager : MonoBehaviour
         Debug.Log($"[WeaponManager]: SetActiveWeapon({index})");
         if (m_currentWeapon)
         {
-            m_currentWeapon.gameObject.SetActive(false);
+			m_currentWeapon.onShoot -= OnCurWeaponShoot;
+			m_currentWeapon.onReload -= OnCurWeaponReload;
+			m_currentWeapon.gameObject.SetActive(false);
             m_currentWeapon = null;
         }
 
@@ -81,6 +89,20 @@ public class WeaponManager : MonoBehaviour
         {
             m_currentWeapon = m_weapons[index];
             m_currentWeapon.gameObject.SetActive(true);
-        }
+			m_currentWeapon.onShoot += OnCurWeaponShoot;
+			m_currentWeapon.onReload += OnCurWeaponReload;
+		}
+
+        onChangeWeapon?.Invoke();
     }
+
+	private void OnCurWeaponReload()
+	{
+		onReload?.Invoke();
+	}
+
+	private void OnCurWeaponShoot()
+	{
+		onShoot?.Invoke();
+	}
 }

@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: PistolWeapon
   m_EditorClassIdentifier: 
   <delay>k__BackingField: 1
-  cage: 10
+  <reloadDelay>k__BackingField: 2
+  <autoReload>k__BackingField: 0
+  <autoFire>k__BackingField: 0
+  <cageSize>k__BackingField: 10
   weaponShoot: {fileID: 11400000, guid: 5c949e21f4138374586c2e723b45497e, type: 2}
   prefab: {fileID: 804247504290053125, guid: 29e2fdd1649c0304cb08115eda161325, type: 3}
-  icon: {fileID: -2413806693520163455, guid: abc9c6dbb829e674cbb33da43d2d6fe5, type: 3}
+  icon: {fileID: 21300000, guid: e342895bcc6858143b425c8203c87c14, type: 3}
