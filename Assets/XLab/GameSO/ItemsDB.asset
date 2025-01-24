@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - name: Gun
-    id: 
+    id: 9ba6eeeb-faa1-47d7-9c25-c0699c0a6d81
     icon: {fileID: 21300000, guid: 25e913ce70832d040b8f2059aa1775b6, type: 3}
     description: gun description
     category: 1
   - name: Pistol
-    id: 
+    id: pistol_0
     icon: {fileID: 21300000, guid: e342895bcc6858143b425c8203c87c14, type: 3}
     description: pistol description
     category: 1

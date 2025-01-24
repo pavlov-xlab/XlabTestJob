@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 726f9cf49bb371f4da8c7abbc4837128, type: 3}
   m_Name: GunWeapon
   m_EditorClassIdentifier: 
+  <id>k__BackingField: 9ba6eeeb-faa1-47d7-9c25-c0699c0a6d81
   <delay>k__BackingField: 0.5
   <reloadDelay>k__BackingField: 2
   <autoReload>k__BackingField: 1

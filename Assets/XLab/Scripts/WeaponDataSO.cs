@@ -8,17 +8,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Weapon", menuName = "Weapon")]
 public class WeaponDataSO : ScriptableObject
 {
+	[field: SerializeField] public string id { private set; get; }
     [field: SerializeField] public float delay { private set; get; } = 1f;
     [field: SerializeField] public float reloadDelay { private set; get; } = 2f;
     [field: SerializeField] public bool autoReload { private set; get; } = false;
     [field: SerializeField] public bool autoFire { private set; get; } = false;
     [field: SerializeField] public int cageSize { private set; get; } = 10;
 
-    public WeaponShootSO weaponShoot;
+	public WeaponShootSO weaponShoot;
     
     
     public GameObject prefab;
-    public Sprite icon;
 
 
 #if UNITY_EDITOR
@@ -30,7 +30,7 @@ public class WeaponDataSO : ScriptableObject
             delay = delay,
             // cage = cage,
             prefab = AssetDatabase.GetAssetPath(prefab),
-            icon = AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(icon)),
+            // icon = AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(icon)),
         };
 
         string json = JsonUtility.ToJson(weaponData);
@@ -49,7 +49,7 @@ public class WeaponDataSO : ScriptableObject
             this.delay = data.delay;
             // this.cage = data.cage;
             var iconPath = AssetDatabase.GUIDToAssetPath(data.icon);
-            this.icon = AssetDatabase.LoadAssetAtPath<Sprite>(iconPath);
+            // this.icon = AssetDatabase.LoadAssetAtPath<Sprite>(iconPath);
             this.prefab = AssetDatabase.LoadAssetAtPath<GameObject>(data.prefab);            
         }
     }

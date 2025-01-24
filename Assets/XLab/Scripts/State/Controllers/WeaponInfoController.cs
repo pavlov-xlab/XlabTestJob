@@ -6,6 +6,7 @@ namespace Xlab
     public class WeaponInfoController : MonoBehaviour
     {
 		[SerializeField] private UIWeaponBar m_weaponBar;
+		[SerializeField] private ItemsDB m_db;
 		private WeaponManager m_weaponManager;
 
 		public void Init(WeaponManager weaponManager)
@@ -44,7 +45,8 @@ namespace Xlab
 			var curWeapon = m_weaponManager.currentWeapon;
 			if (curWeapon)
 			{
-				m_weaponBar.SetIcon(curWeapon.weaponDataSO.icon);
+				var info = m_db.GetItem(curWeapon.weaponDataSO.id);
+				m_weaponBar.SetIcon(info.icon);
 			}
 			
 			RefreshBulletInfo(curWeapon);
