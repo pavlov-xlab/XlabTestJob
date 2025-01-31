@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class BulletRaycast : MonoBehaviour, IBullet
 {
-    public void Fire(float power)
+    public void Fire(float power, int damage)
     {
         if (Physics.Raycast(transform.position, transform.forward, out var hitInfo))
         {
             Debug.Log($"Hit - {hitInfo.collider.name}", hitInfo.collider);
+
+			
         }
         Destroy(gameObject);
     }

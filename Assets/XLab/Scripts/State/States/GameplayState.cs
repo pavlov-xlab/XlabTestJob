@@ -10,9 +10,16 @@ namespace Xlab.States
 
 		private void Awake()
 		{
+			var playerHP = m_player.GetComponent<HealthComponent>();
+
 			if (TryGetComponent<HealthController>(out var health))
 			{
-				health.Init(m_player.GetComponent<HealthComponent>());
+				health.Init(playerHP);
+			}
+
+			if (TryGetComponent<FXDamageController>(out var fxDamage))
+			{
+				fxDamage.Init(playerHP);
 			}
 
 			if (TryGetComponent<WeaponInfoController>(out var weapon))
@@ -23,12 +30,15 @@ namespace Xlab.States
 
         private void OnEnable()
         {
-            
-        }
+			Cursor.visible = false;
+			Cursor.lockState = CursorLockMode.Locked;
+
+		}
 
         private void OnDisable()
         {
-            
-        }
+			Cursor.visible = true;
+			Cursor.lockState = CursorLockMode.None;
+		}
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Xlab.States
 {
+	[DefaultExecutionOrder(-100)]
 	public class GameStateBehaviour : MonoBehaviour, IGameState
 	{
 		void IGameState.Enter()

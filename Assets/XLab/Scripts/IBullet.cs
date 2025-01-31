@@ -2,5 +2,5 @@ using UnityEngine;
 
 public interface IBullet
 {
-    void Fire(float power);
+    void Fire(float power, int damage);
 }

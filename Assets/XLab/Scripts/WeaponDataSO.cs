@@ -14,6 +14,7 @@ public class WeaponDataSO : ScriptableObject
     [field: SerializeField] public bool autoReload { private set; get; } = false;
     [field: SerializeField] public bool autoFire { private set; get; } = false;
     [field: SerializeField] public int cageSize { private set; get; } = 10;
+	[field: SerializeField] public int damage { private set; get; } = 10;
 
 	public WeaponShootSO weaponShoot;
     

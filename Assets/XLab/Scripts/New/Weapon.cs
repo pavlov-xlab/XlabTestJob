@@ -64,7 +64,7 @@ namespace Xlab
             --m_bulletCount;
 
             Debug.Log("Weapon shoot");
-            weaponDataSO.weaponShoot.Shoot(m_muzzle.position, m_muzzle.forward);
+            weaponDataSO.weaponShoot.Shoot(m_muzzle.position, m_muzzle.forward, weaponDataSO.damage);
 
 			onShoot?.Invoke();
 		}

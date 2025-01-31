@@ -1,11 +1,12 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Xlab
 {
-    public class HealthController : MonoBehaviour
-    {
-		[SerializeField] private UIHPBar m_hpBar;
+	public class FXDamageController : MonoBehaviour
+	{
+		[SerializeField] private CanvasGroup m_view;
 		private HealthComponent m_hp;
 
 		public void Init(HealthComponent hp)
@@ -13,18 +14,14 @@ namespace Xlab
 			m_hp = hp;
 		}
 
-		private void Start()
-		{
-			OnTakeDamage();
-		}
-
-        private void OnEnable()
+		private void OnEnable()
 		{
 			if (m_hp)
 			{
 				m_hp.onDamage += OnTakeDamage;
-				OnTakeDamage();
 			}
+
+			m_view.alpha = 0;
 		}
 
 		private void OnDisable()
@@ -33,14 +30,15 @@ namespace Xlab
 			{
 				m_hp.onDamage -= OnTakeDamage;
 			}
+
+			m_view.alpha = 0;
 		}
 
 		private void OnTakeDamage()
 		{
-			if (m_hpBar && m_hp)
-			{
-				m_hpBar.SetHP(m_hp.hpInPercent);
-			}
+			DG.Tweening.Sequence sequence = DOTween.Sequence();
+			sequence.Append(m_view.DOFade(1, 0.1f))
+					.Append(m_view.DOFade(0, 0.3f));
 		}
-    }
+	}
 }

@@ -14,6 +14,11 @@ namespace Xlab
 			m_weaponManager = weaponManager;
 		}
 
+		private void Start()
+		{
+			OnChangeWeapon();
+		}
+
 		private void OnEnable()
 		{
 			if (m_weaponManager)

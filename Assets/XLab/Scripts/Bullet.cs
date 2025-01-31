@@ -1,4 +1,5 @@
 using UnityEngine;
+using Xlab;
 
 
 [RequireComponent(typeof(Rigidbody))]
@@ -6,12 +7,17 @@ public class Bullet : MonoBehaviour, IBullet
 {
     public float lifeTime = 5f;
 
-    public void Fire(float power)
+	private int m_damage;
+
+    public void Fire(float power, int damage)
     {
         var body = GetComponent<Rigidbody>();
         body.linearVelocity = transform.forward * power;
-        
-        Invoke("DestroySelf", lifeTime);
+
+		m_damage = damage;
+
+
+		Invoke("DestroySelf", lifeTime);
     }
 
     private void DestroySelf()
@@ -24,5 +30,10 @@ public class Bullet : MonoBehaviour, IBullet
         DestroySelf();
         
         Debug.Log($"HitBullet - {other.collider.name}", other.collider);
+
+		if (other.collider.TryGetComponent<HealthComponent>(out var hp))
+		{
+			hp.TakeDamage(m_damage);
+		}
     }
 }

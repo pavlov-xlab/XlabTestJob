@@ -2,5 +2,5 @@ using UnityEngine;
 
 public abstract class WeaponShootSO : ScriptableObject
 {
-    public abstract void Shoot(Vector3 position, Vector3 direction);
+    public abstract void Shoot(Vector3 position, Vector3 direction, int damage);
 }

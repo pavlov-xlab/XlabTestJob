@@ -6,9 +6,9 @@ public class WeaponShootBulletSO : WeaponShootSO
     public Bullet prefab;
     public float power = 10f;
 
-    public override void Shoot(Vector3 position, Vector3 direction)
+    public override void Shoot(Vector3 position, Vector3 direction, int damage)
     {
         var bullet = Instantiate(prefab, position, Quaternion.LookRotation(direction));
-        bullet.Fire(power);
+        bullet.Fire(power, damage);
     }
 }

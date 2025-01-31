@@ -7,7 +7,7 @@ public class WeaponShootBullet : MonoBehaviour, IWeaponShoot
 
 	public void Shoot(Vector3 position, Vector3 direction)
 	{
-		var bullet = Instantiate(prefab, position, Quaternion.LookRotation(direction));
-		bullet.Fire(power);
+		// var bullet = Instantiate(prefab, position, Quaternion.LookRotation(direction));
+		// bullet.Fire(power);
 	}
 }

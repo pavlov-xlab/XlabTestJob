@@ -10,6 +10,8 @@ namespace Xlab
 		private Vector3 m_lastPosition;
 
 		private int SpeedId = Animator.StringToHash("Speed");
+		private int HitId = Animator.StringToHash("Hit");
+		private int DieId = Animator.StringToHash("Die");
 
 		private Transform m_thisTransform;
 
@@ -17,11 +19,28 @@ namespace Xlab
 		{
 			m_thisTransform = transform;
 			m_animator = GetComponent<Animator>();
+
+			var hp = GetComponentInParent<HealthComponent>();
+			if (hp)
+			{
+				hp.onDamage += () =>
+				{
+					m_animator.SetTrigger(HitId);
+				};
+
+				hp.onDie += () =>
+				{
+					m_animator.SetTrigger(DieId);
+				};
+
+			}
+			
 		}
 
 		private void Start()
 		{
 			m_lastPosition = transform.position;
+			
 		}
 
 		private void Update()
