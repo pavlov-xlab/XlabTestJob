@@ -6312,85 +6312,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &2058381812 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5120459515238391404, guid: c2d257f19b9b530439062e4c48ecde34, type: 3}
-  m_PrefabInstance: {fileID: 6112491190545024926}
-  m_PrefabAsset: {fileID: 0}
---- !u!136 &2058381813 stripped
-CapsuleCollider:
-  m_CorrespondingSourceObject: {fileID: 7452980808208021816, guid: c2d257f19b9b530439062e4c48ecde34, type: 3}
-  m_PrefabInstance: {fileID: 6112491190545024926}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2058381814 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5392552828844765947, guid: c2d257f19b9b530439062e4c48ecde34, type: 3}
-  m_PrefabInstance: {fileID: 6112491190545024926}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058381812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!195 &2058381815 stripped
-NavMeshAgent:
-  m_CorrespondingSourceObject: {fileID: 6153084746664165316, guid: c2d257f19b9b530439062e4c48ecde34, type: 3}
-  m_PrefabInstance: {fileID: 6112491190545024926}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2058381817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058381812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbb24597c67471f42b8feabe79e672d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_hp: 50
-  m_hpMax: 50
-  m_onDie:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2058381815}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2058381814}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2058381813}
-        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &2058541316 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3691321986282369810, guid: 0f86c2826e1739146a853e769a639a57, type: 3}
@@ -7115,10 +7036,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RamyNpc
       objectReference: {fileID: 0}
-    - target: {fileID: 5392552828844765947, guid: c2d257f19b9b530439062e4c48ecde34, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8639899258380023564, guid: c2d257f19b9b530439062e4c48ecde34, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.72
@@ -7162,10 +7079,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5120459515238391404, guid: c2d257f19b9b530439062e4c48ecde34, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2058381817}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2d257f19b9b530439062e4c48ecde34, type: 3}
 --- !u!1 &7690761364194849635
 GameObject:
