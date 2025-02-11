@@ -30,7 +30,9 @@ namespace Xlab
 
 				hp.onDie += () =>
 				{
-					m_animator.SetTrigger(DieId);
+					// m_animator.SetTrigger(DieId);
+					m_animator.enabled = false;
+					GetComponent<Ragdoll>().Enable(true);
 				};
 
 			}
@@ -51,7 +53,6 @@ namespace Xlab
 			m_animator.SetFloat(SpeedId, speed);
 			
 			m_lastPosition = thisPosition;
-			
 		}
 
 	}

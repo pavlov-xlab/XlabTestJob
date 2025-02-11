@@ -16,6 +16,7 @@ namespace Xlab
 		public int curCage => m_cageSize;
 		public int cageSize => weaponDataSO.cageSize;
 		public bool hasBullet => m_bulletCount > 0;
+		public bool emptyCage => m_cageSize == 0;
 
 		public event System.Action onShoot;
 		public event System.Action onReload;

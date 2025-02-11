@@ -138,30 +138,26 @@ namespace Xlab.WFSM
             m_timer += Time.deltaTime;
             if (m_timer >= m_context.weaponDataSO.delay)
             {
-                if (!m_context.hasBullet && m_context.weaponDataSO.autoReload)
-                {
-                    m_weaponFSM.ActivateState(WeaponStateEnum.Reload);
+				if (m_context.emptyCage && m_context.weaponDataSO.autoReload)
+				{
+					m_weaponFSM.ActivateState(WeaponStateEnum.Reload);
+				}
+				else if (m_context.weaponDataSO.autoFire)
+				{
+					if (m_context.CanFire())
+					{
+						m_context.Shoot();
+						m_timer = 0;
+					}
+					else
+					{
+						StopFire();
+					}
                 }
-                else if (m_context.weaponDataSO.autoFire)
-                {
-                    if (m_context.CanFire())
-                    {
-                        m_context.Shoot();
-                    }
-
-                    if (m_context.CanFire())
-                    {
-                        m_timer = 0;
-                    }                    
-                    else
-                    {
-                        m_weaponFSM.ActivateState(WeaponStateEnum.Empty);
-                    }
-                }
-                else 
-                {
-                    StopFire();
-                }
+				else
+				{
+					StopFire();
+				}
             }
         }
 

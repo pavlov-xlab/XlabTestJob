@@ -8,7 +8,7 @@ namespace Xlab
 		[SerializeField] private int m_hp = 100;
 		[SerializeField] private int m_hpMax = 100;
 
-		public bool isDie => m_hp <= 0;
+		public bool isDead => m_hp <= 0;
 
 		public float hpInPercent => m_hp / (float)m_hpMax;
 
@@ -19,7 +19,7 @@ namespace Xlab
 
 		public void TakeDamage(int damage)
 		{
-			if (isDie)
+			if (isDead)
 			{
 				return;
 			}
