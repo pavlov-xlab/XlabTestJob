@@ -8,6 +8,8 @@ namespace Xlab
 		[SerializeField] private int m_hp = 100;
 		[SerializeField] private int m_hpMax = 100;
 
+		public int hp => m_hp;
+
 		public bool isDead => m_hp <= 0;
 
 		public float hpInPercent => m_hp / (float)m_hpMax;
@@ -16,6 +18,11 @@ namespace Xlab
 		public event System.Action onDamage;
 
 		[SerializeField] private UnityEvent m_onDie;
+
+		public void Init(int hp)
+		{
+			m_hp = hp;
+		}
 
 		public void TakeDamage(int damage)
 		{
