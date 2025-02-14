@@ -1,7 +1,5 @@
 
-using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
+using System.Collections;
 using UnityEngine;
 
 namespace Xlab.States
@@ -12,6 +10,8 @@ namespace Xlab.States
 
 		private void Awake()
 		{
+			SetPlayerState();
+
 			var playerHP = m_player.GetComponent<HealthComponent>();
 
 			if (TryGetComponent<HealthController>(out var health))
@@ -30,10 +30,10 @@ namespace Xlab.States
 			}
 		}
 
-		private void Start()
+		private void SetPlayerState()
 		{
 			var playerState = GameController.instance.player.lastPlayerState;
-			
+
 			if (playerState.valid)
 			{
 				m_player.transform.SetPositionAndRotation(playerState.pos, Quaternion.Euler(playerState.rot));
@@ -45,7 +45,7 @@ namespace Xlab.States
 			}
 		}
 
-        private void OnEnable()
+		private void OnEnable()
         {
 			Cursor.visible = false;
 			Cursor.lockState = CursorLockMode.Locked;
@@ -62,6 +62,11 @@ namespace Xlab.States
 
 		private void SavePlayerState()
 		{
+			if (m_player == null)
+			{
+				return;
+			}
+
 			var pos = m_player.transform.position;
 			var rot = m_player.transform.eulerAngles;
 

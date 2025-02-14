@@ -16,8 +16,11 @@ public static class PlayerDataProc
 
 	public static void LoadPlayer(PlayerData playerData)
 	{
-		var json = File.ReadAllText(pathFile);
-		
-		playerData.FromJson(json);
+		if (File.Exists(pathFile))
+		{
+			var json = File.ReadAllText(pathFile);
+
+			playerData.FromJson(json);
+		}
 	}
 }
