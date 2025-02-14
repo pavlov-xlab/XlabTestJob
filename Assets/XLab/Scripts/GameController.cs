@@ -19,6 +19,7 @@ namespace Xlab
 
 
 		public PlayerData player { private set; get; } = new PlayerData();
+		[field: SerializeField] public ItemsDB itemsDB { private set; get; }
 
 
 		private void Awake()

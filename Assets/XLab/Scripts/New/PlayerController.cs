@@ -9,12 +9,17 @@ namespace Xlab
     {
         public InputActionAsset actions;
         public AimCameraRig aimCameraRig;
+		public WeaponDB weaponDB;
         public GameObject player;
 
         private WeaponManager m_weaponManager;
 
+		public Inventory inventory;
+
 		void Start()
 		{
+			inventory = GameController.instance.player.inventory.Clone();
+
 			var aimAction = actions.FindAction("Player/Fire2");
 			aimAction.started += OnAimStarted;
 			aimAction.canceled += OnAimCanceled;
@@ -38,10 +43,23 @@ namespace Xlab
 			{
 				pickupDetecter.onPickupObjectDetect += OnPickupObjectDetect;
 			}
-        }
+
+			foreach (var slot in inventory.slots)
+			{
+				if (!string.IsNullOrEmpty(slot.item))
+				{
+					WeaponDataSO data = weaponDB.GetWeapon(slot.item);
+					if (data)
+					{
+						m_weaponManager.AddWeapon(data);
+					}
+				}
+			}
+		}
 
 		private void OnPickupObjectDetect(WeaponDataSO weaponData)
 		{
+			inventory.AddItemInNextSlot(weaponData.id);
 			m_weaponManager.AddWeapon(weaponData);
 			m_weaponManager.NextWeapon();
 		}

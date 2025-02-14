@@ -6,6 +6,7 @@ namespace Xlab.States
 {
     public class GameplayState : GameStateBehaviour
 	{
+		[SerializeField] private PlayerController m_playerController;
 		[SerializeField] private GameObject m_player;
 
 		private void Awake()
@@ -57,10 +58,10 @@ namespace Xlab.States
 			Cursor.visible = true;
 			Cursor.lockState = CursorLockMode.None;
 
-			SavePlayerState();
+			// SavePlayerState();
 		}
 
-		private void SavePlayerState()
+		public void SavePlayerState()
 		{
 			if (m_player == null)
 			{
@@ -70,7 +71,9 @@ namespace Xlab.States
 			var pos = m_player.transform.position;
 			var rot = m_player.transform.eulerAngles;
 
-			var playerState = GameController.instance.player.lastPlayerState;
+			var playerData = GameController.instance.player;
+
+			var playerState = playerData.lastPlayerState;
 			playerState.valid = true;
 			playerState.pos = m_player.transform.position;
 			playerState.rot = m_player.transform.eulerAngles;
@@ -79,6 +82,8 @@ namespace Xlab.States
 			{
 				playerState.hp = hp.hp;
 			}
+
+			playerData.RefreshInventory(m_playerController.inventory);
 		}
 	}
 }

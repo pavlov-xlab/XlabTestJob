@@ -3738,6 +3738,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actions: {fileID: -944628639613478452, guid: bfb8b5485f0d591469c6575a13e68865, type: 3}
   aimCameraRig: {fileID: 1889537705}
+  weaponDB: {fileID: 11400000, guid: 74bb7c25a7f31f14284c063162fafc13, type: 2}
   player: {fileID: 36993907}
 --- !u!1 &1311556999
 GameObject:
@@ -4052,6 +4053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242395ae0a64d6c4db13e2c1d9ecf9eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameplayState: {fileID: 1426086488}
 --- !u!1 &1426086486
 GameObject:
   m_ObjectHideFlags: 0
@@ -4101,6 +4103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b22a5cfab6f2ae4cb49d93777b7222b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_playerController: {fileID: 1239538968}
   m_player: {fileID: 36993907}
 --- !u!114 &1426086489
 MonoBehaviour:
@@ -5538,6 +5541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc60be4f9bf2b1c41a4be091cf7f4d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <itemsDB>k__BackingField: {fileID: 11400000, guid: 02ef8dd277ec7c84ab6e738e24d767af, type: 2}
 --- !u!4 &1876149823
 Transform:
   m_ObjectHideFlags: 0
@@ -7158,8 +7162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a7a51aafcbb86d47a5b1b9adcbd101d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_data:
-  - {fileID: 11400000, guid: a7d24a01f5a008544939f8ac6c50a691, type: 2}
+  m_data: []
 --- !u!114 &8077383550592781434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7361,7 +7364,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

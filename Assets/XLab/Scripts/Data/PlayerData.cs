@@ -6,7 +6,7 @@ namespace Xlab
 {
 	public class PlayerData
 	{
-		private Inventory m_inventory;
+		public Inventory inventory { private set; get; }
 
 		private Dictionary<string, PlayerResource> m_resources = new Dictionary<string, PlayerResource>();
 
@@ -15,11 +15,17 @@ namespace Xlab
 
 		public PlayerData()
 		{
-			m_inventory = new Inventory(10);
+			inventory = new Inventory(10);
+			inventory.SetItem(0, "9ba6eeeb-faa1-47d7-9c25-c0699c0a6d81");
 
 			m_resources.Add("soft", new PlayerResource() { id = "soft", count = 100 });
 			m_resources.Add("hard", new PlayerResource() { id = "hard", count = 10 });
 			m_resources.Add("exp", new PlayerResource() { id = "exp", count = 0 });
+		}
+
+		public void RefreshInventory(Inventory inventory)
+		{
+			this.inventory = inventory.Clone();
 		}
 
 		public void IncResources(string id, int value)
