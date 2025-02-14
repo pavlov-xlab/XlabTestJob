@@ -12,30 +12,41 @@ namespace Xlab
         public GameObject player;
 
         private WeaponManager m_weaponManager;
-        
-        void Start()
-        {
-            var aimAction = actions.FindAction("Player/Fire2");
-            aimAction.started += OnAimStarted;
-            aimAction.canceled += OnAimCanceled;
-            
-            var fireAction = actions.FindAction("Player/Fire");
-            fireAction.started += OnFireStarted;
-            fireAction.canceled += OnFireCanceled;
 
-            var nextWeaponAction = actions.FindAction("Player/NextWeapon");
-            nextWeaponAction.performed += OnNextWeapon;
-            
-            var reloadWeaponAction = actions.FindAction("Player/Reload");
-            reloadWeaponAction.performed += OnReloadWeapon;
+		void Start()
+		{
+			var aimAction = actions.FindAction("Player/Fire2");
+			aimAction.started += OnAimStarted;
+			aimAction.canceled += OnAimCanceled;
 
-            actions.Enable();
+			var fireAction = actions.FindAction("Player/Fire");
+			fireAction.started += OnFireStarted;
+			fireAction.canceled += OnFireCanceled;
 
-            bool result = player.TryGetComponent(out m_weaponManager);
-            Debug.Assert(result, "WeaponManager not found!");
+			var nextWeaponAction = actions.FindAction("Player/NextWeapon");
+			nextWeaponAction.performed += OnNextWeapon;
+
+			var reloadWeaponAction = actions.FindAction("Player/Reload");
+			reloadWeaponAction.performed += OnReloadWeapon;
+
+			actions.Enable();
+
+			bool result = player.TryGetComponent(out m_weaponManager);
+			Debug.Assert(result, "WeaponManager not found!");
+
+			if (player.TryGetComponent<PickupDetecter>(out var pickupDetecter))
+			{
+				pickupDetecter.onPickupObjectDetect += OnPickupObjectDetect;
+			}
         }
 
-        private void OnReloadWeapon(InputAction.CallbackContext context)
+		private void OnPickupObjectDetect(WeaponDataSO weaponData)
+		{
+			m_weaponManager.AddWeapon(weaponData);
+			m_weaponManager.NextWeapon();
+		}
+
+		private void OnReloadWeapon(InputAction.CallbackContext context)
         {
             m_weaponManager.Reload();
         }

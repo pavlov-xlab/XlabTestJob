@@ -44,14 +44,14 @@ public class Bullet : MonoBehaviour, IBullet
 	}
 
     private void OnCollisionEnter(Collision other)
-    {
-        DestroySelf();
-        
+    {   
         Debug.Log($"HitBullet - {other.collider.name}", other.collider);
 
 		if (other.collider.TryGetComponent<HealthComponent>(out var hp))
 		{
 			hp.TakeDamage(m_damage);
 		}
+
+        DestroySelf();
     }
 }

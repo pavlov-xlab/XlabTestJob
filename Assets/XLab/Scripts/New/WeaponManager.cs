@@ -26,25 +26,30 @@ public class WeaponManager : MonoBehaviour
     {
         foreach (var data in m_data)
         {
-            var go = Instantiate(data.prefab, transform);
-            go.SetActive(false);
-            if (go.TryGetComponent<Weapon>(out var weapon))
-            {
-                m_weapons.Add(weapon);
-            }
-        }
+			AddWeapon(data);
+		}
 
         SetActiveWeapon(0);
     }
 
+	public void AddWeapon(WeaponDataSO weaponData)
+	{
+		var go = Instantiate(weaponData.prefab, transform);
+		go.SetActive(false);
+		if (go.TryGetComponent<Weapon>(out var weapon))
+		{
+			m_weapons.Add(weapon);
+		}
+	}
+
     public void Reload()
-    {
-        Debug.Log($"[WeaponManager]: Reload");
-        if (m_currentWeapon)
-        {
-            m_currentWeapon.Reload();
-        }
-    }
+	{
+		Debug.Log($"[WeaponManager]: Reload");
+		if (m_currentWeapon)
+		{
+			m_currentWeapon.Reload();
+		}
+	}
 
     public void StartFire()
     {

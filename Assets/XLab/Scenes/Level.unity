@@ -6826,6 +6826,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8600112050557472206, guid: 336c39d931ed2bb4080bfcb329e7b8f2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8077383550592781434}
+    - targetCorrespondingSourceObject: {fileID: 8600112050557472206, guid: 336c39d931ed2bb4080bfcb329e7b8f2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8077383550592781441}
   m_SourcePrefab: {fileID: 100100000, guid: 336c39d931ed2bb4080bfcb329e7b8f2, type: 3}
 --- !u!1001 &3691321984223930902
 PrefabInstance:
@@ -7157,7 +7160,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_data:
   - {fileID: 11400000, guid: a7d24a01f5a008544939f8ac6c50a691, type: 2}
-  - {fileID: 11400000, guid: 9f7e430f5f2861341b383a64833a747d, type: 2}
 --- !u!114 &8077383550592781434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7175,6 +7177,18 @@ MonoBehaviour:
   m_onDie:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8077383550592781441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36993907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225670beb19c3424c948f08280c5c35e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &8277758080035620415
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7323,6 +7337,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1014251742945213360}
+  - component: {fileID: 9151706896173342561}
+  - component: {fileID: 9151706896173342560}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -7330,6 +7346,40 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!135 &9151706896173342560
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9151706896173342559}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.15
+  m_Center: {x: 0, y: 0, z: 0.1}
+--- !u!114 &9151706896173342561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9151706896173342559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb781c0181c30b47b80b9b4def63280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: 9f7e430f5f2861341b383a64833a747d, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
