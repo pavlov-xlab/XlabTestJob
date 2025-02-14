@@ -9,21 +9,39 @@ public class Bullet : MonoBehaviour, IBullet
 
 	private int m_damage;
 
-    public void Fire(float power, int damage)
-    {
-        var body = GetComponent<Rigidbody>();
-        body.linearVelocity = transform.forward * power;
+	private Rigidbody m_body;
+
+	public event System.Action onDestroy;
+
+	private void Awake()
+	{
+		m_body = GetComponent<Rigidbody>();
+	}
+
+	public void Fire(float power, int damage)
+	{
+		m_body.linearVelocity = transform.forward * power;
 
 		m_damage = damage;
 
 
 		Invoke("DestroySelf", lifeTime);
-    }
+	}
+
+	public void Reset()
+	{
+		var body = GetComponent<Rigidbody>();
+		m_body.linearVelocity = Vector3.zero;
+		m_body.angularVelocity = Vector3.zero;
+		m_damage = 0;
+		CancelInvoke();
+		onDestroy = null;
+	}
 
     private void DestroySelf()
-    {
-        Destroy(gameObject);
-    }
+	{
+		onDestroy?.Invoke();
+	}
 
     private void OnCollisionEnter(Collision other)
     {
