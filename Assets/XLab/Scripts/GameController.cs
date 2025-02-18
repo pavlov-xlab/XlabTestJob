@@ -17,7 +17,7 @@ namespace Xlab
 			}
 		}
 
-
+		public AdManager adManager { private set; get; } = new AdManager();
 		public PlayerData player { private set; get; } = new PlayerData();
 		[field: SerializeField] public ItemsDB itemsDB { private set; get; }
 
@@ -38,6 +38,9 @@ namespace Xlab
 			DontDestroyOnLoad(gameObject);
 
 			LoadPlayerData();
+
+			Analytics.Init();
+			adManager.Init();
 		}
 
 		public void SavePlayerData()

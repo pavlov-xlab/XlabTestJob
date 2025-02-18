@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Unity.Cinemachine.Samples;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -59,6 +60,12 @@ namespace Xlab
 
 		private void OnPickupObjectDetect(WeaponDataSO weaponData)
 		{
+			Analytics.SendEvent("PickUpWeapon", new Dictionary<object, object>()
+			{
+				{"id", weaponData.id },
+				{ "", "" }
+			});
+
 			inventory.AddItemInNextSlot(weaponData.id);
 			m_weaponManager.AddWeapon(weaponData);
 			m_weaponManager.NextWeapon();
