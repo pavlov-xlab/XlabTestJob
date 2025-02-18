@@ -58,8 +58,15 @@ namespace Xlab
 			}
 		}
 
-		private void OnPickupObjectDetect(WeaponDataSO weaponData)
+		private void OnPickupObjectDetect(PickupObject pickupObject)
 		{
+			var weaponData = pickupObject.weaponData;
+
+			if (inventory.Exist(weaponData.id))
+			{
+				return;
+			}
+
 			Analytics.SendEvent("PickUpWeapon", new Dictionary<object, object>()
 			{
 				{"id", weaponData.id },
@@ -69,6 +76,8 @@ namespace Xlab
 			inventory.AddItemInNextSlot(weaponData.id);
 			m_weaponManager.AddWeapon(weaponData);
 			m_weaponManager.NextWeapon();
+
+			GameObject.Destroy(pickupObject.gameObject);
 		}
 
 		private void OnReloadWeapon(InputAction.CallbackContext context)

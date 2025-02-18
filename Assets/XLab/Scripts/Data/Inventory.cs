@@ -41,6 +41,11 @@ namespace Xlab
 			}
 		}
 
+		public bool Exist(string item)
+		{
+			return m_slots.FindIndex(x => x.item == item) >= 0;
+		}
+
 		public void AddItemInNextSlot(string item)
 		{
 			int index = m_slots.FindIndex(x => x.item == item);

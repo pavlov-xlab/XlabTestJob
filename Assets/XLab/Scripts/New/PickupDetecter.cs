@@ -4,7 +4,7 @@ namespace Xlab
 {
 	public class PickupDetecter : MonoBehaviour
 	{
-		public event System.Action<WeaponDataSO> onPickupObjectDetect;
+		public event System.Action<PickupObject> onPickupObjectDetect;
 
 		private void OnTriggerEnter(Collider other)
 		{
@@ -12,9 +12,7 @@ namespace Xlab
 
 			if (other.TryGetComponent<PickupObject>(out var pickupObject))
 			{
-				onPickupObjectDetect?.Invoke(pickupObject.weaponData);
-
-				Destroy(other.gameObject);
+				onPickupObjectDetect?.Invoke(pickupObject);
 			}
 		}
 	}
