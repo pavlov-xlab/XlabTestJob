@@ -50,7 +50,7 @@ namespace Xlab
 			}
 			else
 			{
-				index = m_slots.FindIndex(x => x.item == null);
+				index = m_slots.FindIndex(x => string.IsNullOrEmpty(x.item));
 				if (index >= 0)
 				{
 					SetItem(index, item);
