@@ -1,7 +1,9 @@
+using DG.Tweening;
 using UnityEngine;
 
 namespace Xlab
 {
+	[DefaultExecutionOrder(100)]
 	public class GameController : MonoBehaviour
 	{
 		private static GameController m_instance;

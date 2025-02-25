@@ -3290,6 +3290,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1197048402}
     - target: {fileID: 697089655940709218, guid: beec55caa975a4e419de267c2e1d9cb7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 697089655940709218, guid: beec55caa975a4e419de267c2e1d9cb7, type: 3}
       propertyPath: m_BuildHeightMesh
       value: 1
       objectReference: {fileID: 0}
@@ -4069,6 +4073,7 @@ GameObject:
   - component: {fileID: 1426086491}
   - component: {fileID: 1426086492}
   - component: {fileID: 1426086493}
+  - component: {fileID: 1426086494}
   m_Layer: 0
   m_Name: GameplayState
   m_TagString: Untagged
@@ -4206,6 +4211,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_view: {fileID: 1987646121}
+--- !u!114 &1426086494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426086486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1cfeafbe00eb2b43b602f2122e874d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_actions: {fileID: 0}
+  m_maps:
+  - Player
 --- !u!1 &1433217093
 GameObject:
   m_ObjectHideFlags: 0
