@@ -15,6 +15,12 @@ namespace Xlab
 
 		public PlayerData()
 		{
+			Reset();
+		}
+
+		public void Reset()
+		{
+			lastPlayerState = new PlayerState();
 			inventory = new Inventory(10);
 			inventory.SetItem(0, "9ba6eeeb-faa1-47d7-9c25-c0699c0a6d81");
 

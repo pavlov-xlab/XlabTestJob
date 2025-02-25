@@ -1,6 +1,7 @@
 
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Xlab.States.Controllers
 {
@@ -22,14 +23,8 @@ namespace Xlab.States.Controllers
 				GameController.instance.SavePlayerData();
 			}
 
-			if (Application.isEditor)
-			{
-				UnityEditor.EditorApplication.isPlaying = false;
-			}
-			else
-			{
-				Application.Quit();
-			}
+			// GameController.QuitGame();
+			SceneManager.LoadScene("MainMenu");
 		}
 	}
 }

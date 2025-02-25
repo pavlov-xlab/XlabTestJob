@@ -4223,7 +4223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cfeafbe00eb2b43b602f2122e874d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_actions: {fileID: 0}
+  m_actions: {fileID: -944628639613478452, guid: bfb8b5485f0d591469c6575a13e68865, type: 3}
   m_maps:
   - Player
 --- !u!1 &1433217093

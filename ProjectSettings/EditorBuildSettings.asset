@@ -6,11 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/XLab/Scenes/TestScene.unity
-    guid: f16d579160dfacf46ae34515f80a8ba6
+    path: Assets/XLab/Scenes/Preloader.unity
+    guid: da37cd9eaf3521246b4ad7d8414b9bbf
+  - enabled: 1
+    path: Assets/XLab/Scenes/MainMenu.unity
+    guid: f490f4f25d55d9242a1b7521c550e4fd
   - enabled: 1
     path: Assets/XLab/Scenes/Level.unity
     guid: bc31f79bdb10dfe4d9098d3f68257c75
+  - enabled: 1
+    path: Assets/XLab/Scenes/TestScene.unity
+    guid: f16d579160dfacf46ae34515f80a8ba6
   - enabled: 1
     path: Assets/XLab/Scenes/Empty.unity
     guid: 9d89bc26d6ffe89438e16a3e7144f460
