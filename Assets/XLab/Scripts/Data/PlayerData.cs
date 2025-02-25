@@ -82,25 +82,11 @@ namespace Xlab
 	[System.Serializable]
 	public class PlayerState
 	{
-		public Vec3 pos;
-		public Vec3 rot;
+		public Vector3 pos;
+		public Vector3 rot;
 		public int hp;
 		public bool valid;
 	}
-	
-	[System.Serializable]
-	public struct Vec3
-	{
-		public float x;
-		public float y;
-		public float z;
-
-		public static implicit operator Vector3(Vec3 v3) => new Vector3(v3.x, v3.y, v3.z);
-		public static implicit operator Vec3(Vector3 v3) => new Vec3() { x = v3.x, y = v3.y, z = v3.z };
-		
-		// public static explicit operator Vec3(Vector3 v3) => new Vec3() { x = v3.x, y = v3.y, z = v3.z };
-	}
-
 
 	[System.Serializable]
 	public class PlayerResource
