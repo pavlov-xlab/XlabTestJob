@@ -14,6 +14,9 @@ namespace Xlab
 		private int DieId = Animator.StringToHash("Die");
 
 		private Transform m_thisTransform;
+		private float m_curSpeed = 0f;
+		[SerializeField]
+		private float m_speedMaxDelta = 0f;
 
 		private void Awake()
 		{
@@ -45,12 +48,21 @@ namespace Xlab
 			
 		}
 
-		private void Update()
+		private void LateUpdate()
 		{
 			Vector3 thisPosition = m_thisTransform.position;
 			float speed = Vector3.Distance(m_lastPosition, thisPosition) / Time.deltaTime;
-			
-			m_animator.SetFloat(SpeedId, speed);
+
+			if (m_speedMaxDelta > 0f)
+			{
+				m_curSpeed = Mathf.MoveTowards(m_curSpeed, speed, Time.deltaTime * m_speedMaxDelta);
+			}
+			else
+			{
+				m_curSpeed = speed;
+			}
+
+			m_animator.SetFloat(SpeedId, m_curSpeed);
 			
 			m_lastPosition = thisPosition;
 		}

@@ -15,28 +15,5 @@ namespace Xlab.States
 		{
 			Time.timeScale = 1f;
 		}
-
-		public void OnRestartClick()
-		{
-			GameController.instance.adManager.ShowVideoAd(status=>
-			{
-				if (status == AdStatus.Complete)
-				{
-					RestartScene();
-				}
-				else
-				{
-
-				}
-			});
-			
-		}
-
-		private static void RestartScene()
-		{
-			var scene = SceneManager.GetActiveScene();
-			SceneManager.LoadScene("Empty");
-			SceneManager.LoadScene(scene.name);
-		}
 	}
 }

@@ -16,7 +16,6 @@ namespace Xlab.States.Controllers
 				return;
 			}
 
-
 			if (gameplayState)
 			{
 				gameplayState.SavePlayerState();

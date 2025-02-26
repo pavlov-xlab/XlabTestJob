@@ -18,6 +18,11 @@ namespace Xlab.States
 			if (TryGetComponent<HealthController>(out var health))
 			{
 				health.Init(playerHP);
+
+				playerHP.onDie += () =>
+				{
+					GetComponentInParent<GameMode>().GotoGameOver();
+				};
 			}
 
 			if (TryGetComponent<FXDamageController>(out var fxDamage))

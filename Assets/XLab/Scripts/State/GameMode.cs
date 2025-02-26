@@ -20,9 +20,6 @@ namespace Xlab.States
 				m_stateActivator.Add(state);
 			}
 
-			m_stateActivator.Add(new PauseState());
-
-
 			m_stateActivator.Activate<GameplayState>();
 		}
 
@@ -40,6 +37,11 @@ namespace Xlab.States
 		public void GotoPause()
 		{
 			m_stateActivator.Push<PauseState>();
+		}
+
+		public void GotoGameOver()
+		{
+			m_stateActivator.Push<GameOverState>();
 		}
 
 		public void GotoGameplay()
